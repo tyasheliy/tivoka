@@ -45,6 +45,11 @@ abstract class Server
     public static function provide($host)
     {
         return new Server\Server($host);
-    }
+	}
+
+	public static function fromControllers(array $controllers)
+	{
+		return Server\Server::fromControllers($controllers);
+	}
 }
 ?>

@@ -1,9 +1,8 @@
 {
-    "name": "tivoka/tivoka",
+    "name": "tyasheliy/tivoka",
     "type": "library",
     "description": "The universal JSON-RPC client/server library. JSON-RPC done right!",
     "keywords": ["json", "rpc", "json-rpc", "api", "xml-rpc"],
-    "homepage": "http://marcelklehr.github.com/tivoka",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3",
+        "php": ">=8",
         "textalk/websocket": "1.0.*"
     },
     "autoload": {

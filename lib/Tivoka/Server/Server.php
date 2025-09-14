@@ -67,7 +67,19 @@ class Server
      * @var bool
      * @access private
      */
-    public $hide_errors = false;
+	public $hide_errors = false;
+
+	public static function fromControllers(array $controllers): self
+	{
+		$methods = [];
+
+		foreach ($controllers as $controller) {
+			assert($controller instanceof AbstractController);
+			$methods = array_merge($methods, $controller->formatMethods());
+		}
+
+		return new self($methods);
+	}
     
     /**
      * Construct a Server object
@@ -78,10 +90,11 @@ class Server
     public function __construct($host) {
         if(is_array($host)) {
             $methods = $host;
-            $host = new MethodWrapper();
+			$host = new MethodWrapper();
+
             foreach($methods as $name => $method)
-            {
-                if($host->___register($name, $method)) continue;
+			{
+				if($host->___register($name, $method)) continue;
                 throw new Exception\Exception('Given value for "'.$name.'" is no valid callback.');
             }
         }
